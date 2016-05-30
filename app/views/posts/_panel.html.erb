@@ -1,0 +1,9 @@
+<% @post.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+<%= form_for @post do |f| %>
+  <div class="form-group">
+    <%= f.text_area :body, class: "form-control" %>
+    <%= f.submit "投稿", class: "btn btn-default" %>
+  </div>
+<% end %>

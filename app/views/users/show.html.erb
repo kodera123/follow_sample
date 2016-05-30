@@ -1,0 +1,16 @@
+<h1>Users#show</h1>
+<%= render "header" %>
+<div class="list-group">
+	<% if @user.posts.empty? %>
+	  <div class="list-group-item">まだ投稿はありません</div>	  
+	<% end %>
+	<%= render "post", post: @user.posts %>
+</div>
+
+
+
+
+
+<!-- <p>名前は<%= @user.name %></p>
+<p>紹介は<%= @user.bio %></p>
+<p>IDは<%= @user.id %></p> -->
