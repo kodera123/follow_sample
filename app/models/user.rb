@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9]+\z/ }, length: { in: 4..24 }
   validates :screen_name, length: { maximum: 140 }
-  validates :bio, length: { maximum: 200  }
+  validates :bio, length: { maximum: 200 }
 
   def followed_by? user
   	inverse_follows.where(follower_id: user.id).exists?
