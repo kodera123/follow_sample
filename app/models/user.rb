@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :validatable
   
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -14,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :inverse_follows
 
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9]+\z/ }, length: { in: 4..24 }
+  # validates :name, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9]+\z/ }, length: { in: 4..24 }
   validates :screen_name, length: { maximum: 140 }
   validates :bio, length: { maximum: 200 }
 

@@ -4,7 +4,6 @@ class Post < ActiveRecord::Base
 
 	has_many :favorites, dependent: :destroy
 
-
 	validates :user, presence: true
 	validates :body, presence: true, length: { in: 1..140}
 

@@ -1,24 +1,39 @@
+# MySQL.  Versions 5.0+ are recommended.
+#
+# Install the MYSQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+#
 default: &default
   adapter: mysql2
   encoding: utf8
-  reconnect: false
   pool: 5
+
+local: &local
+  username: root
+  # password: root
   socket: /tmp/mysql.sock
+  #socket: /var/run/mysqld/mysqld.sock # for Ubuntu
 
 development:
   <<: *default
-  database: db_development
-  username: user_development
-  password: pass_development
+  <<: *local
+  database: Follow
+  host: localhost
 
-test:
+  test:
   <<: *default
-  database: db_test
-  username: user_test
-  password: pass_test
+  database: Follow
+  username: root
+  password:
 
 production:
   <<: *default
-  database: db_production
-  username: user_production
-  password: pass_production
+  database: Follow
+  username: root
+  password:
