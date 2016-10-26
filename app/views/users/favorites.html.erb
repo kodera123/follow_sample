@@ -1,9 +1,15 @@
-<%= render "header" %>
-<div class="list-group">
-	<% if @user.favorites.empty? %>
-	  <div class="list-group-item">
-	  	まだお気に入りされた投稿はありません。
-	  </div>
-	<% end %>
-	<%= render "users/post", post: @user.favorites.map { |f| f.post } %>
+
+<div id="tweets-content">
+  <div class="row">
+    <%= render "header" %>
+    <div class="list-group">
+	  <% if @user.favorites.empty? %>
+  	    <div class="list-group-item">
+	  	  まだお気に入りされた投稿はありません。
+		</div>
+	  <% end %>
+	  <%= render "users/user_posts", post: @user.favorites.map { |f| f.post } %>
+	</div>
+  </div>
 </div>
+	

@@ -1,5 +1,13 @@
-<%= render "header" %>
-<h2>フォロワー一覧</h2>
-<div class="list-group">
-	<%= render "user", user: @user.followers %>
+<div id="tweets-content">
+  <div class="row">
+    <%= render "header" %>
+    <div class="list-group">
+	  <% if @user.followers.empty? %>
+  	    <div class="list-group-item">
+	  	  まだフォロワーがいません...
+		</div>
+	  <% end %>
+	  <%= render "user", user: @user.followers %>
+	</div>
+  </div>
 </div>

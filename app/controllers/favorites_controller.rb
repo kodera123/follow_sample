@@ -5,7 +5,10 @@ class FavoritesController < ApplicationController
         @favorite = current_user.favorites.build(post: @post)
  
         if @favorite.save
-          redirect_to posts_url, notice: "お気に入りに登録しました"
+          respond_to do |format|
+            format.html { redirect_to posts_url, notice: "成功です" }
+            format.js
+          end
         else
           redirect_to posts_url, alert: "この投稿はお気に入りに登録できません"
         end

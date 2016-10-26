@@ -1,26 +1,38 @@
-<ul class="nav nav-tabs nav-justified">
-	<li class="inline">
-	  <%= link_to user_path(@user) do %>
-	    <div class="text">投稿数</div>
-	    <div class="num"><%= @user.posts.count %></div>
-	  <% end %>
-	</li>
-	<li class="inline">
-	  <%= link_to follows_user_path(@user) do %>
-	    <div class="text">フォロー</div>
-	    <div class="num"><%= @user.followings.count %></div>
-	  <% end %>
-	</li>
-	<li class="inline">
-	  <%= link_to followers_user_path(@user) do %>
-	    <div class="text">フォロワー</div>
-	    <div class="num"><%= @user.followers.count %></div>
-	  <% end %>
-	</li>
-	<li class="inline">
-      <%= link_to favorites_user_path(@user) do %>
-	    <div class="text">いいね一覧</div>
-	    <div class="num"><%= @user.favorites.count %></div>
-	  <% end %>		
-	</li>
-</ul>
+<div id="user-contents panel">
+	<div class="user-info">
+	  <span class="user-name">
+	  	<%= @user.email %>
+	  </span>
+	  <div class="bio">
+	  	bio
+	  </div>
+	  
+	</div>
+
+	<ul class="nav nav-tabs nav-justified">
+		<li class=<%== action_name == "show" ? "active" : nil %>>
+		  <%= link_to user_path(@user), class: :p0 do %>
+		    <div class="text">投稿数</div>
+		    <div class="num"><%= @user.posts.count %></div>
+		  <% end %>
+		</li>
+		<li class=<%== action_name == "follows" ? "active" : nil %>>
+		  <%= link_to follows_user_path(@user) do %>
+		    <div class="text">フォロー</div>
+		    <div class="num"><%= @user.followings.count %></div>
+		  <% end %>
+		</li>
+		<li class=<%== action_name == "followers" ? "active" : nil %>>
+		  <%= link_to followers_user_path(@user) do %>
+		    <div class="text">フォロワー</div>
+		    <div class="num"><%= @user.followers.count %></div>
+		  <% end %>
+		</li>
+		<li class=<%== action_name == "favorites" ? "active" : nil %>>
+	      <%= link_to favorites_user_path(@user) do %>
+		    <div class="text">いいね一覧</div>
+		    <div class="num"><%= @user.favorites.count %></div>
+		  <% end %>		
+		</li>
+	</ul>
+</div>

@@ -1,17 +1,12 @@
-<% user.each do |u| %>
-<div>
-	<%= link_to u.name, user_path(u) %>
-	<span>@<%= u.name %></span>
-</div>
-<div class="bio">
-	<%= u.bio %>
-</div>
-<div class="follow-unfollow">
-	<% if u.followed_by? current_user %>
-	  <%= link_to "フォロー解除", user_follows_path(u), method: :delete %>
-	<% else %>
-	  <%= link_to "フォロー", user_follows_path(u), method: :post %>
-	<% end %>
-</div>
 
+<div class="row">
+	<% user.each do |u| %>
+	<div class="col-lg-4 col-sm-6 text-center">
+	    <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+	    <h3><%= u.name %>
+	        <small>@<%= u.name %></small>
+	    </h3>
+	    <p><%= u.bio %></p>
+	</div>
 <% end %>
+</div>

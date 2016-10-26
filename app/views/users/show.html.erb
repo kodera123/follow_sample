@@ -1,12 +1,15 @@
-<h1>Users#show</h1>
-<%= render "header" %>
-<div class="list-group">
-	<% if @user.posts.empty? %>
-	  <div class="list-group-item">まだ投稿はありません</div>	  
-	<% end %>
-	<%= render "post", post: @user.posts %>
+<div id="tweets-content">
+  <div class="row">    
+    <%= render "header" %>
+    <div class="list-group">
+	  <% if @user.posts.empty? %>
+	    <div class="list-group-item">まだ投稿はありません</div>	  
+	  <% end %>
+	  <%= render "users/user_posts", post: @user.posts %>
+    </div>
+  </div>
 </div>
-
+	
 
 
 

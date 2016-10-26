@@ -1,10 +1,6 @@
-
-<%= render "panel" %>
-
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
-<%= link_to "全てのつぶやき", posts_path %>
-<%= link_to "フォロワーのつぶやき", timeline_posts_path %>
-
-<%= render "users/post", post: @posts %>
+<div id="tweets-content">
+  <div class="row">
+    <%= render "panel" %>   
+    <%= render "users/post", post: @posts %>
+  </div>
+</div>

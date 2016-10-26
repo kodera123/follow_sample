@@ -1,9 +1,62 @@
 <% @post.errors.full_messages.each do |message| %>
   <li><%= message %></li>
 <% end %>
-<%= form_for @post do |f| %>
-  <div class="form-group">
-    <%= f.text_area :body, class: "form-control" %>
-    <%= f.submit "投稿", class: "btn btn-default" %>
-  </div>
-<% end %>
+<div class="col-sm-4 left-content">
+      <!-- ↓singed_in?を使ってログインした人しか見れないようにしましょう -->
+      <% if signed_in? %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="user">
+              <span class="user-name">
+                <strong>
+                  <!-- ↓current_userのemailを表示しよう -->
+                  <%= current_user.email %>
+                </strong>
+              </span>
+            </div>
+
+            <div class="user-activity">
+              <div class="row">
+                <div class="col-xs-6 tweets-num text-center">
+                  <div class="text">
+                    総つぶやき数
+                  </div>
+                  <div class="num">
+                    <!-- ↓全てのツイートの数を数える -->
+                    <!-- わからなければ「rails count」で検索！ -->
+                    <%= Post.count %>
+                  </div>
+                </div>
+                <div class="col-xs-6 tweets-num text-center">
+                  <div class="text">
+                    あなたのつぶやき
+                  </div>
+                  <div class="num">
+                    <!-- ↓current_userのツイートの数を数える -->
+                    <!-- わからなければ「rails count」で検索！ -->
+                    <%= current_user.posts.count %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- ↓form_forを使ってつぶやくためのフォームを作る -->
+          <%= form_for(@post) do |f| %>
+            <div class="form-group new-tweet">
+              <!-- ↓text_areaを生成 -->
+              <%= f.text_area :body, class: "form-control"%>
+              <!-- ↓submitを生成 -->
+              <%= button_tag( class: "btn btn-primary btn-sm") do %>
+			  	<%= content_tag :span, "", class: "glyphicon glyphicon-send" %>
+			  	送信
+			  <% end %>
+            </div>
+          <% end %>
+          <!-- ↑form_forをendで閉じる -->
+        </div>
+      <% end %>
+      <!-- ↑signed_in?のif文をendで閉じる -->
+    </div>

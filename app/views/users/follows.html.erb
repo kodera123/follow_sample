@@ -1,5 +1,13 @@
-<%= render "header" %>
-<h2>フォロー一覧</h2>
-<div class="list-group">
-	<%= render "user", user: @user.followings %>
+<div id="tweets-content">
+  <div class="row">
+    <%= render "header" %>
+    <div class="list-group">
+	  <% if @user.followers.empty? %>
+  	    <div class="list-group-item">
+	  	  フォローした人はいません
+		</div>
+	  <% end %>
+	  <%= render "user", user: @user.followings %>
+	</div>
+  </div>
 </div>

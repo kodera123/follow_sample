@@ -1,8 +1,4 @@
-
-<!-- ↓ここから右カラム -->
-    <div class="col-sm-8 right-content">
-      <div class="list-group">
-        <!-- ↓eachメソッドを用いてツイート一覧を表示しましょう -->
+<!-- ↓eachメソッドを用いてツイート一覧を表示しましょう -->
         <% post.each do |p|%>
           <div class="list-group-item">
             <h4 class="user">
@@ -52,5 +48,3 @@
       <%#= paginate post %>
       <%= link_to "全てのつぶやき", posts_path %>
       <%= link_to "フォロワーのつぶやき", timeline_posts_path %>
-    </div>
-  </div>
