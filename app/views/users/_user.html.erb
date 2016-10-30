@@ -1,12 +1,13 @@
-
 <div class="row">
-	<% user.each do |u| %>
-	<div class="col-lg-4 col-sm-6 text-center">
-	    <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-	    <h3><%= u.name %>
-	        <small>@<%= u.name %></small>
+  <div class="user-container">
+  	<% user.each do |u| %>
+	  <div class="col-lg-4 col-sm-6 text-center">
+		<img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+		<h3><%= u.name %>
+		  <small>@<%= u.name %></small>
 	    </h3>
 	    <p><%= u.bio %></p>
-	</div>
-<% end %>
+      </div>
+	<% end %>
+  </div>
 </div>

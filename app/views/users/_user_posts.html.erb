@@ -4,7 +4,7 @@
             <h4 class="user">
               <span class="user-name">
               <!-- ↓ツイートに紐付いたUserのemailの表示 -->
-                <strong><%= p.user.email %></strong>
+                <strong><%= p.user.name %></strong>
               </span>
               <% if p.user.followed_by? current_user %>
                 <%= link_to user_follows_path(p.user), method: :delete, class: "btn btn-xs btn-danger follow-btn" do %>

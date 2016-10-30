@@ -22,19 +22,12 @@ local: &local
 
 development:
   <<: *default
-<<<<<<< HEAD
-  <<: *local
   database: Follow
+  username: root
   host: localhost
-=======
-  database: follow_sample_development
-  username: root
-  password: 
->>>>>>> 1fd0b1019cb016186357b0a55d8777ea4d22d88e
 
-  test:
+test:
   <<: *default
-<<<<<<< HEAD
   database: Follow
   username: root
   password:
@@ -43,15 +36,4 @@ production:
   <<: *default
   database: Follow
   username: root
-  password:
-=======
-  database: follow_sample_test
-  username: root
   password: 
-
-production:
-  <<: *default
-  database: follow_sample_production
-  username: root
-  password: 
->>>>>>> 1fd0b1019cb016186357b0a55d8777ea4d22d88e
