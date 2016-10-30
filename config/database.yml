@@ -24,7 +24,7 @@ development:
   <<: *default
   database: Follow
   username: root
-  host: localhost
+  host: localhost 
 
 test:
   <<: *default
@@ -35,5 +35,11 @@ test:
 production:
   <<: *default
   database: Follow
+  username: root
+  password: 
+
+production:
+  <<: *default
+  database: follow_sample_production
   username: root
   password: 
