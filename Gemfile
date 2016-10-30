@@ -21,7 +21,7 @@ gem 'bootstrap-sass'
 gem 'kaminari-bootstrap'
 
 #gem 'fog'
-#gem 'asset_sync'
+gem 'asset_sync'
 gem 'carrierwave'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -60,6 +60,7 @@ end
 
 group :production, :staging do
   gem 'unicorn'
+  #gem 'asset_sync'
 end
 
 
